@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    let temp=0;
+    let x=0;
+    for(let i=0;i<nums.length;i++){
+    if(nums[i]!==0){
+      temp=nums[x];
+      nums[x]=nums[i];
+      x++;
+       nums[i]=temp;
+    }
+    }
+    return nums;
+};
