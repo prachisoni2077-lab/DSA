@@ -14,16 +14,13 @@ var removeElements = function(head, val) {
     let sentinal =new ListNode();
     sentinal.next=head;
     let prev=sentinal;
-    let curr=head;
-
-    while(curr){
-        if(curr.val===val){
-           prev.next=curr.next;
-           
+    
+    while(prev && prev.next){
+        if(prev.next.val===val){
+            prev.next=prev.next.next;
         }else{
             prev=prev.next;
-        } 
-        curr=curr.next;
+        }
     }
     return sentinal.next;
 };
