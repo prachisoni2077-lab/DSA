@@ -10,20 +10,17 @@ var balancedStringSplit = function(s) {
     for(let i=0;i<s.length;i++){
         if(s[i]=="R"){
             R++;
-            if(R==L){
-                output++;
-                R=0;
-                L=0;
-            }
            
         }else{
             L++;
-            if(R==L){
+            
+        }
+
+         if(R==L){
                 output++;
                 R=0;
                 L=0;
-            }
-        }
+            } 
     }
     return output;
 };
