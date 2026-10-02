@@ -10,8 +10,16 @@ var isPalindrome = function(s) {
             filteredString=filteredString + s[i];
         }
     }
+   
+     let q=filteredString;
+     let y=q.length-1;
+    for(let i=0;i<q.length/2;i++){
+        if(q[i]===q[y]){
+           y--;
+        }else{
+            return false;
+        }
+    }
 
-    let rev =filteredString.split("").reverse().join("");
-
-    return filteredString === rev;
+    return true;
 };
