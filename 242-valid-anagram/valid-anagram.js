@@ -4,18 +4,28 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-   let w=s.split("").sort().join("");
-   let  d=t.split("").sort().join("");
-    if(w.length!=d.length){
+
+    if(s.length!==t.length){
         return false;
     }
-   for(let i=0;i<w.length;i++){
-    
-    if(w[i]==d[i]){
-        continue;
+  let map={};
+
+  for(let i=0;i<s.length;i++){
+    if(!map[s[i]]){
+        map[s[i]]=1;
     }else{
-        return false;
+        ++map[s[i]]
     }
-   }
-   return true;
+  }
+
+  for(let i=0;i<t.length;i++){
+    if(!map[t[i]] || map[t[i]]<0){
+        return false;
+    }else{
+     --map[t[i]];
+
+  }
+  }
+  return true;
+
 };
