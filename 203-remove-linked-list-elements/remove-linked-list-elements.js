@@ -11,16 +11,32 @@
  * @return {ListNode}
  */
 var removeElements = function(head, val) {
-    let sentinal =new ListNode();
-    sentinal.next=head;
-    let prev=sentinal;
+    // let sentinal =new ListNode();
+    // sentinal.next=head;
+    // let prev=sentinal;
     
-    while(prev && prev.next){
-        if(prev.next.val===val){
-            prev.next=prev.next.next;
-        }else{
-            prev=prev.next;
+    // while(prev && prev.next){
+    //     if(prev.next.val===val){
+    //         prev.next=prev.next.next;
+    //     }else{
+    //         prev=prev.next;
+    //     }
+    // }
+    // return sentinal.next;
+
+        while (head && head.val === val) {
+        head = head.next;
+    }
+
+    let curr = head;
+
+    while (curr && curr.next) {
+        if (curr.next.val === val) {
+            curr.next = curr.next.next;
+        } else {
+            curr = curr.next;
         }
     }
-    return sentinal.next;
+
+    return head;
 };
